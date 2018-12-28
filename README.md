@@ -1,5 +1,4 @@
 # laboratory
-<<<<<<< HEAD
 
 This is a laboratory VUE project for learning and testing VUE projects
 这是一个实验室的 VUE 项目，用于学习和测试 VUE 项目
@@ -32,6 +31,3 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-=======
-This is a laboratory VUE project for learning and testing VUE projects
->>>>>>> e03a19e078bfe3c93fc4e11ecdc86e19bfa7ddfc
