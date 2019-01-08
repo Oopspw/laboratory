@@ -1,8 +1,10 @@
 'use strict'
+// check-versions 主要用来比对检查版本
+// 定义控制台日志输入的样式
 const chalk = require('chalk')
 const semver = require('semver')
 const packageConfig = require('../package.json')
-// 引入shelljS
+// 引入shelljS 注：shell是linux下的脚本语言解析器
 const shell = require('shelljs')
 
 function exec (cmd) {
@@ -20,6 +22,7 @@ const versionRequirements = [
   }
 ]
 
+// 在环境变量PATH中寻找指定命令的地址，判断该命令是否可执行，返回该命令的绝对地址
 if (shell.which('npm')) {
   versionRequirements.push({
     name: 'npm',
