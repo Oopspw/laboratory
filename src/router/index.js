@@ -1,26 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// Vue.use(Router)
-// export default new Router({
-//   routes: [
-//     {
-//       path: '/',
-//       name: 'HelloWorld',
-//       component: HelloWorld
-//     },
-//     {
-//       path: '/HelloDemo',
-//       name: 'HelloDemo',
-//       component: HelloDemo
-//     }
-//   ]
-// })
 Vue.use(Router)
 export default new Router({
   mode: 'hash',
   routes: [
-    // 功能组件
+    // 功能组件 异步组件
     {
       path: '/',
       name: 'HelloWorld',
@@ -38,19 +23,27 @@ export default new Router({
       }
     },
     {
-      path: '/father',
-      name: 'father',
-      component: resolve => require(['@/components/prop_text/father.vue'], resolve),
+      path: '/parent',
+      name: 'parent',
+      component: resolve => require(['@/components/communication/parent.vue'], resolve),
       meta: {
-        title: 'father'
+        title: 'parent'
       }
     },
     {
-      path: '/son',
-      name: 'son',
-      component: resolve => require(['@/components/prop_text/son.vue'], resolve),
+      path: '/childA',
+      name: 'childA',
+      component: resolve => require(['@/components/communication/childA.vue'], resolve),
       meta: {
-        title: 'son'
+        title: 'childA'
+      }
+    },
+    {
+      path: '/childB',
+      name: 'childB',
+      component: resolve => require(['@/components/communication/childB.vue'], resolve),
+      meta: {
+        title: 'childB'
       }
     }
   ]
