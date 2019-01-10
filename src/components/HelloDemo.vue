@@ -2,26 +2,16 @@
 <!-- eslint-disable -->
   <div v-title="$route.meta.title">
     <h3>{{msg}}</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Sex</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(person,index) in people">
-          <td>{{ person.name }}</td>
-          <td>{{ person.age }}</td>
-          <td>{{ person.sex }}</td>
-          <td :class="'text-center'"><button @click="deletePerson(index)">Delete</button></td>
-        </tr>
-      </tbody>
-    </table>
-    <div v-for="(item, index) in people">{{index}}</div>
-    <div v-for="num in pageCount">{{num}}</div>
+    <!-- 解释一下这里有什么区别 -->
+    <!-- 这是之前发现的一个v-for对不同类型处理方式区别 -->
+    <!-- 数组 index 从 0 开始 -->
+    <h3>typeOf Array</h3>
+    <div v-for="(item, index) in Arrays">{{index}}</div>
+    <!-- 数值 num 从 1 开始 -->
+    <h3>typeOf Number</h3>
+    <div v-for="num in Nums">{{num}}</div>
+    <!-- 在查看了源码得知 在设计时当遍历的参数类型为数值时会对该数值的起始值进行了+1的操作 -->
+    <!-- 详参vue源码 全局搜索for 大约在3800多行左右 -->
   </div>
 </template>
 
@@ -31,29 +21,14 @@ export default {
   data () {
     return {
       msg: 'This is demo',
-      people: [{
-        name: 'Jack',
-        age: 30,
-        sex: 'Male'
-      }, {
-        name: 'Bill',
-        age: 26,
-        sex: 'Male'
-      }, {
-        name: 'Tracy',
-        age: 22,
-        sex: 'Female'
-      }, {
-        name: 'Chris',
-        age: 36,
-        sex: 'Male'
-      }],
-      pageCount: 10
+      Arrays: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      Nums: 10
     }
   },
   methods: {
     deletePerson (a) {
       console.log(a)
+      this.people.splice(a, 1)
     }
   }
 }

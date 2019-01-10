@@ -36,6 +36,22 @@ export default new Router({
       meta: {
         title: 'HelloDemo'
       }
+    },
+    {
+      path: '/father',
+      name: 'father',
+      component: resolve => require(['@/components/prop_text/father.vue'], resolve),
+      meta: {
+        title: 'father'
+      }
+    },
+    {
+      path: '/son',
+      name: 'son',
+      component: resolve => require(['@/components/prop_text/son.vue'], resolve),
+      meta: {
+        title: 'son'
+      }
     }
   ]
 })

@@ -15,6 +15,7 @@ const path = require('path')
 const chalk = require('chalk')
 // 引入webpack模块使用内置插件和webpack方法
 const webpack = require('webpack')
+// 引入config文件配置
 const config = require('../config')
 // webpack 配置
 const webpackConfig = require('./webpack.prod.conf')

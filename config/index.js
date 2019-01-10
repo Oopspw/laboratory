@@ -13,7 +13,7 @@ module.exports = {
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 9090, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 6060, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true, // 傻瓜都能看懂的 设置运行项目时自动在浏览器中打开
     errorOverlay: true,
     notifyOnErrors: true,

@@ -5,6 +5,7 @@ const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
 
+// 引入静态资源
 exports.assetsPath = function (_path) {
   const assetsSubDirectory =
     process.env.NODE_ENV === 'production'
