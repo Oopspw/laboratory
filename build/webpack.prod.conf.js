@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const JSEncodePlugin = require('./js-encode-plugin')
 
 // 判断环境 进程的node环境是开发还是生产环境
 const env =
@@ -36,16 +37,22 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': env
     }),
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          warnings: false
-        }
-      },
-      sourceMap: config.build.productionSourceMap,
-      parallel: true
-    }),
+    // new UglifyJsPlugin({
+    //   uglifyOptions: {
+    //     compress: {
+    //       warnings: false
+    //     }
+    //   },
+    //   sourceMap: config.build.productionSourceMap,
+    //   parallel: true
+    // }),
     // extract css into its own file
+    // js加密
+    new JSEncodePlugin({
+      global: '$',
+      jsReg: /\.js$/,
+      assetsPath: '../dist/static/js'
+    }),
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css'),
       // Setting the following option to `false` will not extract CSS from codesplit chunks. 将下列选项设置为“false”不会从codesplit块中提取CSS。
